@@ -68,14 +68,13 @@ class UserController extends AbstractController
             ->text("User {$user->getEmail()} was {$action}ed.");
 
         try {
-            $this->mailer->send($email);
-            echo "Email sent successfully to {$user->getEmail()}."; die();// Success message
+            $this->mailer->send($email);// Success message
         } catch (TransportExceptionInterface $e) {
             // Print the error message
-            echo "Failed to send email: " . $e->getMessage();die();
+            echo "Failed to send email: " . $e->getMessage();
         } catch (\Exception $e) {
             // Catch any other exceptions
-            echo "An error occurred: " . $e->getMessage();die();
+            echo "An error occurred: " . $e->getMessage();
         }
     }
 }
