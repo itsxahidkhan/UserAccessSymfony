@@ -1,0 +1,32 @@
+{# templates/dashboard/user.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">User Dashboard</h1>
+        <p>Welcome to your dashboard. Below is the list of users:</p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roles | join(', ') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+{% endblock %}

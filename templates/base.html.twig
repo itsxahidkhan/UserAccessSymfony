@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome{% endblock %}</title>
+
+    {# Include Bootstrap CSS #}
+    <link href="{{ asset('build/bootstrap.min.css') }}" rel="stylesheet">
+
+    {# Include custom styles if needed #}
+    <link href="{{ asset('build/app.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+
+    {# Include Bootstrap Bundle with Popper #}
+    <script src="{{ asset('build/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

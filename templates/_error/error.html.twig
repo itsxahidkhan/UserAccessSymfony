@@ -1,0 +1,14 @@
+{# templates/error.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Access Denied{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="alert alert-danger">
+            <h4 class="alert-heading">Access Denied!</h4>
+            <p>You do not have permission to access this page. Please log in with the appropriate account.</p>
+        </div>
+        <a href="{{ path('app_login') }}" class="btn btn-primary">Go to Login</a>
+    </div>
+{% endblock %}
