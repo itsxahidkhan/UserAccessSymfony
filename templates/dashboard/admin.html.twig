@@ -6,7 +6,11 @@
     <div class="container">
         <h1 class="mt-5">Admin Dashboard</h1>
         <p>Welcome to the Admin dashboard. Below is the list of users:</p>
-
+        {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+        {% endfor %}
         <table class="table table-striped">
             <thead>
                 <tr>

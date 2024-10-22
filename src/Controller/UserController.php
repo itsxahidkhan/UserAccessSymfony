@@ -31,8 +31,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-
             $this->sendEmail('edit', $user);
+            $this->addFlash('success', 'User details updated successfully.');
             if ($this->isGranted('ROLE_ADMIN')) {
                 return $this->redirectToRoute('admin_dashboard');
             } else {
@@ -46,12 +46,13 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/{id}', name: 'delete', methods: ['DELETE'])]
+    #[Route(path: '/{id}', name: 'delete', methods: ['GET'])]
     public function delete(User $user, EntityManagerInterface $em): Response
     {
         $em->remove($user);
         $em->flush();
         $this->sendEmail('delete', $user);
+        $this->addFlash('success', 'User details deleted successfully.');
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('admin_dashboard');
         } else {

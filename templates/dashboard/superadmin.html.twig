@@ -6,7 +6,11 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">SuperAdmin Dashboard</h1>
         <p class="text-center mb-4">Welcome to the SuperAdmin dashboard. Below is the list of users:</p>
-
+        {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+        {% endfor %}
         <div class="table-responsive">
             <table class="table table-striped table-bordered text-center">
                 <thead class="thead-light">
